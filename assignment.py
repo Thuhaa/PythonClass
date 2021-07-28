@@ -29,7 +29,7 @@ the user gets 20 points
 import random
 
 
-def check_validity(users_input):
+def check_users_input_validity(users_input):
     if users_input > 10 or users_input < 0:
         print("You should enter a number between 0 and 10")
     else:
@@ -49,4 +49,4 @@ def game():
 
 
 users_input = int(input("Enter a number between 0 and 10: "))
-check_validity(users_input)  # Call the function
+check_users_input_validity(users_input)  # Call the function
