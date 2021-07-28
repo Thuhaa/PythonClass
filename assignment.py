@@ -27,22 +27,26 @@ the user gets 20 points
 """
 # Solving problems- Step by step
 import random
-users_input = int(input("Enter a number between 0 and 10: "))
 
-def game():
-    if users_input>10 or users_input<0:
+
+def check_validity(users_input):
+    if users_input > 10 or users_input < 0:
         print("You should enter a number between 0 and 10")
     else:
-        right_number = random.randint(0,10)# The program generates a random integer between 0 and 10 and assigns it to right_number
-        if abs(right_number-users_input)==1: # Bonus 10 matches
-            print("You have won 20 points: The correct number is right_number", right_number)
-        elif right_number == users_input: # Jackpot!!!
-            print("You have won 1000 points")
-        elif abs(right_number-users_input)==2: # Bonus 9 Matches
-            print("You have  won 10 points: The correct number is: ", right_number)
-        else: # Not close to getting the answer
-            print("You have have not won any point: The correct number is: ", right_number)
-game() # Call the function
+        game()
 
 
+def game():
+    right_number = random.randint(0,10)
+    if abs(right_number - users_input) == 1:  # Bonus 10 matches
+        print("You have won 20 points: The correct number is right_number", right_number)
+    elif right_number == users_input:  # Jackpot!!!
+        print("You have won 1000 points")
+    elif abs(right_number - users_input) == 2:  # Bonus 9 Matches
+        print("You have  won 10 points: The correct number is: ", right_number)
+    else:  # Not close to getting the answer
+        print("You have have not won any point: The correct number is: ", right_number)
 
+
+users_input = int(input("Enter a number between 0 and 10: "))
+check_validity(users_input)  # Call the function
